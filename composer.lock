@@ -4,77 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6269b111cae386e55cd261a78acc399",
+    "content-hash": "fff66dc81e35b42278a5e13c4731f182",
     "packages": [
         {
-            "name": "dhii/exception-interface",
-            "version": "v0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Dhii/exception-interface.git",
-                "reference": "fe64b30f67830474683357f77dc4a097bf84767e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/exception-interface/zipball/fe64b30f67830474683357f77dc4a097bf84767e",
-                "reference": "fe64b30f67830474683357f77dc4a097bf84767e",
-                "shasum": ""
-            },
-            "require": {
-                "dhii/stringable-interface": "^0.1",
-                "php": "^5.3 | ^7.0"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "<=0.3.2",
-                "dhii/php-cs-fixer-config": "dev-php-5.3",
-                "phpunit/phpunit": "^4.8",
-                "ptrofimov/xpmock": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Dhii\\Exception\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dhii Team",
-                    "email": "development@dhii.co"
-                }
-            ],
-            "description": "Interfaces for most common exceptions",
-            "time": "2017-09-01T18:00:26+00:00"
-        },
-        {
             "name": "dhii/output-renderer-interface",
-            "version": "v0.2",
+            "version": "0.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/output-renderer-interface.git",
-                "reference": "be225ecdc9cd0ea087e2fc7d9845f0b7708d0350"
+                "reference": "d4a4daadf4d3111d7850d952ec31ae758cb0f788"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/output-renderer-interface/zipball/be225ecdc9cd0ea087e2fc7d9845f0b7708d0350",
-                "reference": "be225ecdc9cd0ea087e2fc7d9845f0b7708d0350",
+                "url": "https://api.github.com/repos/Dhii/output-renderer-interface/zipball/d4a4daadf4d3111d7850d952ec31ae758cb0f788",
+                "reference": "d4a4daadf4d3111d7850d952ec31ae758cb0f788",
                 "shasum": ""
             },
             "require": {
-                "dhii/exception-interface": "^0.1",
                 "dhii/stringable-interface": "^0.1",
-                "php": "^5.3 | ^7.0"
+                "php": "^7.0"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "dev-master",
                 "dhii/php-cs-fixer-config": "dev-php-5.3",
-                "phpunit/phpunit": "4.*",
-                "ptrofimov/xpmock": "^1.1"
+                "phpunit/phpunit": "^6.0",
+                "psr/container": "^1.0"
+            },
+            "suggest": {
+                "dhii/container-helper-base": "Useful for reading data from different context types uniformly"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.3.x-dev",
+                    "0.4.x": "0.4.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Dhii\\Output\\": "src/"
@@ -91,7 +56,7 @@
                 }
             ],
             "description": "An interface for objects that can perform rendering.",
-            "time": "2017-10-04T12:23:52+00:00"
+            "time": "2019-12-30T16:08:02+00:00"
         },
         {
             "name": "dhii/stringable-interface",
