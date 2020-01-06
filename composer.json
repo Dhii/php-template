@@ -21,7 +21,8 @@
         "codeclimate/php-test-reporter": "<=0.3.2",
         "php-vfs/php-vfs": "^1.3.1",
         "dhii/stringable-interface": "^0.1",
-        "mikey179/vfsstream": "^1.6"
+        "mikey179/vfsstream": "^1.6",
+        "psr/container": "^1.0"
     },
     "autoload": {
         "psr-4": {
