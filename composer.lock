@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11f331edcf8f32ec85f31ba2f4d39b29",
+    "content-hash": "3a91aa394d356dd0b1b826c5746b137c",
     "packages": [
         {
             "name": "dhii/output-renderer-interface",
@@ -601,56 +601,6 @@
             ],
             "description": "Library for handling version information and constraints",
             "time": "2017-03-05T17:38:23+00:00"
-        },
-        {
-            "name": "php-vfs/php-vfs",
-            "version": "v1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/michael-donat/php-vfs.git",
-                "reference": "1254b67ca6bdaccd9f305b0e1aea81f790b3fa67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/michael-donat/php-vfs/zipball/1254b67ca6bdaccd9f305b0e1aea81f790b3fa67",
-                "reference": "1254b67ca6bdaccd9f305b0e1aea81f790b3fa67",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "doctrine/instantiator": "~1.0.2",
-                "phpunit/phpunit": "^6.5",
-                "sami/sami": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "VirtualFileSystem": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Donat",
-                    "email": "michael.donat@me.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Virtual file system implementation for use with PHP unit testing.",
-            "homepage": "http://michael-donat.github.com/php-vfs",
-            "keywords": [
-                "filesystem",
-                "php",
-                "testing",
-                "unit",
-                "virtual"
-            ],
-            "time": "2017-12-20T16:11:12+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
