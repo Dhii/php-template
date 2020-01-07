@@ -4,6 +4,9 @@ namespace Dhii\Output\PhpEvaluator;
 
 use Exception;
 
+/**
+ * A PHP evaluator that directly evaluates PHP files via `include`.
+ */
 class FilePhpEvaluator implements PhpEvaluatorInterface
 {
     /**
@@ -11,6 +14,9 @@ class FilePhpEvaluator implements PhpEvaluatorInterface
      */
     private $filePath;
 
+    /**
+     * @param string $filePath Path to the template PHP file that will be evaluated.
+     */
     public function __construct(string $filePath)
     {
         $this->filePath = $filePath;

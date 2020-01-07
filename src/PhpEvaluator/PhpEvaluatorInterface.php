@@ -4,6 +4,9 @@ namespace Dhii\Output\PhpEvaluator;
 
 use Exception;
 
+/**
+ * Something that evaluates PHP with variable context.
+ */
 interface PhpEvaluatorInterface
 {
     /**
