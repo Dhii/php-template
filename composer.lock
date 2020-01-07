@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/output-renderer-interface.git",
-                "reference": "d4a4daadf4d3111d7850d952ec31ae758cb0f788"
+                "reference": "e2946f7228898540d78019011062a2e5e942ff2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/output-renderer-interface/zipball/d4a4daadf4d3111d7850d952ec31ae758cb0f788",
-                "reference": "d4a4daadf4d3111d7850d952ec31ae758cb0f788",
+                "url": "https://api.github.com/repos/Dhii/output-renderer-interface/zipball/e2946f7228898540d78019011062a2e5e942ff2c",
+                "reference": "e2946f7228898540d78019011062a2e5e942ff2c",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 }
             ],
             "description": "An interface for objects that can perform rendering.",
-            "time": "2019-12-30T16:08:02+00:00"
+            "time": "2020-01-07T15:52:17+00:00"
         },
         {
             "name": "dhii/stringable-interface",
