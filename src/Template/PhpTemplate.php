@@ -27,11 +27,11 @@ class PhpTemplate implements TemplateInterface
     /**
      * @var array<string, mixed>
      */
-    private $defaultContext;
+    protected $defaultContext;
     /**
      * @var array<string, callable>
      */
-    private $functions;
+    protected $functions;
 
     /**
      * @param PhpEvaluatorInterface $evaluator The evaluator of the PHP code that represents the template body.

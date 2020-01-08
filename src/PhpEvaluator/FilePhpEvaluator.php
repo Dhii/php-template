@@ -12,7 +12,7 @@ class FilePhpEvaluator implements PhpEvaluatorInterface
     /**
      * @var string
      */
-    private $filePath;
+    protected $filePath;
 
     /**
      * @param string $filePath Path to the template PHP file that will be evaluated.
