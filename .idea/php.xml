@@ -165,6 +165,7 @@
   <component name="PhpUnit">
     <phpunit_settings>
       <phpunit_by_interpreter interpreter_id="5fe55e6c-9eb8-460d-a55e-d8446e3d47d0" configuration_file_path="/srv/vendor/phpunit.xml" custom_loader_path="/srv/vendor/autoload.php" phpunit_phar_path="" />
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
     </phpunit_settings>
   </component>
 </project>
