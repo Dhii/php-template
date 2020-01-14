@@ -18,7 +18,6 @@
     "require-dev": {
         "phpunit/phpunit": "^6.0 || ^7.0 || ^8.0",
         "dhii/php-cs-fixer-config": "^0.1",
-        "codeclimate/php-test-reporter": "<=0.3.2",
         "dhii/stringable-interface": "^0.1",
         "mikey179/vfsstream": "^1.6",
         "psr/container": "^1.0"
