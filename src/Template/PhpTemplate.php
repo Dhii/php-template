@@ -166,7 +166,11 @@ class PhpTemplate implements TemplateInterface
 
         // It's an array-like
         {
-            if (!array_key_exists($key, $context)) {
+            $isExists = is_array($context)
+                ? array_key_exists($key, $context)
+                : $context->offsetExists($key);
+
+            if (!$isExists) {
                 if (!array_key_exists($key, $this->defaultContext)) {
                     return $default;
                 }
