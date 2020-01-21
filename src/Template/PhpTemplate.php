@@ -55,6 +55,10 @@ class PhpTemplate implements TemplateInterface
      */
     public function render($context = null)
     {
+        if ($context !== null) {
+            $this->validateContext($context);
+        }
+
         try {
             $vars = $this->getPhpVars($context);
         } catch (Exception $e) {
