@@ -51,7 +51,7 @@ class FilePhpEvaluator implements PhpEvaluatorInterface
         $fn = function (array $____vars) use ($____file) {
             extract($____vars, EXTR_SKIP);
 
-            return require $____file;
+            return include $____file;
         };
         $fn->bindTo(null);
 
