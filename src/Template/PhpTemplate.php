@@ -129,7 +129,7 @@ class PhpTemplate implements TemplateInterface
      */
     protected function getFunctionsFunction($context): callable
     {
-        return function (string $funcName, ...$args) use ($context) {
+        return function (string $funcName, ...$args) {
             return $this->invokeFunction($funcName, $args);
         };
     }
