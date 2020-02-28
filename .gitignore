@@ -10,3 +10,5 @@
 /.idea/vagrant.xml
 /.idea/misc.xml
 /.idea/inspectionProfiles/
+/.idea/codeStyles
+/.env
