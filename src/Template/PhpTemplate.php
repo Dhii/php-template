@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Dhii\Output\Template;
 
@@ -21,7 +22,7 @@ class PhpTemplate implements TemplateInterface
     const VAR_FUNCTION = 'f';
 
     /**
-     * @var \Dhii\Output\PhpEvaluator\PhpEvaluatorInterface
+     * @var PhpEvaluatorInterface
      */
     protected $evaluator;
     /**
