@@ -26,6 +26,11 @@ class FilePathTemplateFactory implements PathTemplateFactoryInterface
      */
     protected $functions;
 
+    /**
+     * @param FilePhpEvaluatorFactoryInterface $evaluatorFactory A factory that creates PHP file evaluators.
+     * @param array                            $defaultContext   A map of keys to values that will be available in template context by default.
+     * @param array                            $functions        A map of keys to callables that will be available to templates by default.
+     */
     public function __construct(
         FilePhpEvaluatorFactoryInterface $evaluatorFactory,
         array $defaultContext,
