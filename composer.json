@@ -26,6 +26,11 @@
             "Dhii\\Output\\": "src"
         }
     },
+    "extra": {
+      "branch-alias": {
+        "dev-develop": "0.1.x-dev"
+      }
+    },
     "scripts": {
         "test": "phpunit",
         "csfix": "php-cs-fixer fix -vvv"
