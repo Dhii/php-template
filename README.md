@@ -67,9 +67,6 @@ use Dhii\Output\Template\PhpTemplate\FilePathTemplateFactory;
 
 #### template.php
 ```php
-/*
- * template.php
- */
 /* @var $c callable */
 /* @var $f callable */
 ?>
