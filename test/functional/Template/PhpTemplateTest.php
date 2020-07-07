@@ -4,8 +4,13 @@ namespace Dhii\Output\FuncTest\Template;
 
 use ArrayAccess;
 use ArrayObject;
+use Dhii\Output\PhpEvaluator\FilePhpEvaluatorFactory;
+use Dhii\Output\PhpEvaluator\FilePhpEvaluatorFactoryInterface;
 use Dhii\Output\PhpEvaluator\PhpEvaluatorInterface;
+use Dhii\Output\Template\PhpTemplate\FilePathTemplateFactory;
 use Exception;
+use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\TestCase;
 use Dhii\Output\Template\PhpTemplate as TestSubject;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
@@ -16,6 +21,15 @@ use Psr\Container\ContainerInterface;
  */
 class PhpTemplateTest extends TestCase
 {
+    /** @var vfsStreamDirectory */
+    protected $fs;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->fs = vfsStream::setup();
+    }
+
     /**
      * Creates a new instance of the test subject.
      *
@@ -97,6 +111,42 @@ class PhpTemplateTest extends TestCase
     }
 
     /**
+     * Creates a new evaluator factory mock instance.
+     *
+     * @return FilePhpEvaluatorFactory&MockObject The new instance.
+     */
+    public function createEvaluatorFactory(): FilePhpEvaluatorFactory
+    {
+        $mock = $this->getMockBuilder(FilePhpEvaluatorFactory::class)
+            ->setMethods(null)
+            ->getMock();
+
+        return $mock;
+    }
+
+    /**
+     * Creates a new template factory mock instance.
+     *
+     * @param FilePhpEvaluatorFactoryInterface $evaluatorFactory
+     * @param array                            $defaultContext
+     * @param array                            $functions
+     *
+     * @return FilePathTemplateFactory&MockObject The new factory mock.
+     */
+    public function createFactory(
+        FilePhpEvaluatorFactoryInterface $evaluatorFactory,
+        array $defaultContext,
+        array $functions
+    ): FilePathTemplateFactory {
+        $mock = $this->getMockBuilder(FilePathTemplateFactory::class)
+            ->setMethods(null)
+            ->setConstructorArgs([$evaluatorFactory, $defaultContext, $functions])
+            ->getMock();
+
+        return $mock;
+    }
+
+    /**
      * Provides data useful for testing rendering with different contexts.
      *
      * @return array<int, array> The data, with following members.
@@ -114,6 +164,69 @@ class PhpTemplateTest extends TestCase
             [$key, $value, $this->createArrayAccess($data)],
             [$key, $value, $this->createContainer($data)],
         ];
+    }
+
+    /**
+     * Creates a virtual file with content, and retrieves its path.
+     *
+     * @param string $content The content for the file.
+     *
+     * @return string The path to the file.
+     */
+    public function getFilePath(string $content): string
+    {
+        $fileName = uniqid() . '.php';
+        $filePath = $this->fs->url() . "/$fileName";
+
+        file_put_contents($filePath, $content);
+
+        return $filePath;
+    }
+
+    /**
+     * Tests that a factory creates a template that produces correct output.
+     *
+     * This is an end-to-end test which tests all of the functionality related to a PHP template together:
+     *
+     * - It uses a real evaluator factory and real evaluators, which evaluate a real PHP template file
+     *   in a real, albeit virtualized, filesystem.
+     * - It uses a real PHP template implementation.
+     * - It uses a real template, which has
+     *   * Explicit PHP output (by using `echo `).
+     *   * Implicit PHP output (by just having content outside of PHP).
+     *   * Retrieves a value from context explicitly provided at render time.
+     *   * Retrieves a value from default context provided via the factory.
+     *   * Passes value through a custom function provided via the factory.
+     *
+     * Pretty much, this tests the whole happy path from start to finish.
+     */
+    public function testFactoryE2e()
+    {
+        {
+            $evalFactory = $this->createEvaluatorFactory();
+            $defaultKey = uniqid('default-key');
+            $defaultValue = uniqid('default-value');
+            $contextKey = uniqid('context-key');
+            $contextValue = uniqid('context-value');
+            $defaultContext = [$defaultKey => $defaultValue];
+            $funcName = uniqid('func-name');
+            $func = function ($value) { return substr($value, 0, 15); };
+            $functions = [$funcName => $func];
+            $context = [$contextKey => $contextValue];
+            $contentSeparator = uniqid('separator');
+            $content = "<?php echo \$c('$defaultKey') ?>$contentSeparator<?php echo \$f('$funcName', \$c('$contextKey')) ?>";
+            $funcResult = $func($contextValue);
+            $expectedOutput = "{$defaultValue}{$contentSeparator}{$funcResult}";
+            $subject = $this->createFactory($evalFactory, $defaultContext, $functions);
+            $path = $this->getFilePath($content);
+        }
+
+        {
+            $result = $subject->fromPath($path);
+            $output = $result->render($context);
+
+            $this->assertEquals($expectedOutput, $output);
+        }
     }
 
     /**
