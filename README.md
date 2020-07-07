@@ -23,7 +23,7 @@ Below examples explain how a template factory could be configured, and used to p
 standards-compliant template. Then that template is rendered with context. Please note the following:
 
 1. The file at path `template.php` is used to produce the output.
-2. Context members are retrieved by `$c('key'')`. 
+2. Context members are retrieved by `$c('key')`. 
 3. It is possible to use the `uc` function with `$f('uc')`.
 4. The default context member `time` is present in the template, even though it was not explicitly supplied
 at render time.
