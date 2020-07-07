@@ -32,8 +32,9 @@ at render time.
 ```php
 use Dhii\Output\PhpEvaluator\FilePhpEvaluatorFactory;
 use Dhii\Output\Template\PhpTemplate\FilePathTemplateFactory;
+use Dhii\Output\Template\PathTemplateFactoryInterface;
 
-function () {
+function (): PathTemplateFactoryInterface {
     return new FilePathTemplateFactory(
         new FilePhpEvaluatorFactory(),
         [ // This will be available by default in all contexts of all templates made by this factory
