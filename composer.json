@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.0",
+        "php": "^7.2 | ^8.0",
         "dhii/output-renderer-interface": "^0.4"
     },
     "require-dev": {
