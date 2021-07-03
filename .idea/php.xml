@@ -40,6 +40,7 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
       <path value="$PROJECT_DIR$/vendor/mikey179/vfsstream" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
