@@ -24,7 +24,7 @@ class PhpTemplateTest extends TestCase
     /** @var vfsStreamDirectory */
     protected $fs;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->fs = vfsStream::setup();
