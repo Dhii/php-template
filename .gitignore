@@ -12,3 +12,4 @@
 /.idea/inspectionProfiles/
 /.idea/codeStyles
 /.env
+/.phpunit.result.cache
