@@ -35,7 +35,7 @@ class RendererException extends Exception implements RendererExceptionInterface
     /**
      * @inheritDoc
      */
-    public function getRenderer()
+    public function getRenderer(): RendererInterface
     {
         return $this->renderer;
     }

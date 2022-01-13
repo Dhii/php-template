@@ -29,7 +29,7 @@ class FilePhpEvaluatorTest extends TestCase
         return $mock;
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->fs = vfsStream::setup();
